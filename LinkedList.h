@@ -4,14 +4,16 @@
 
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
+
 struct Node {
-    template <typename T>
-    int* id;
+    void* id;
     int ref;
     Node* next;
+    int data;
     Node() {
         ref =0;
         id = nullptr;
+        data = 0;
         next = nullptr;
     }
 };
@@ -20,10 +22,10 @@ class LinkedList {
 public:
     Node* head;
     LinkedList();
-
     void newNode(Node *node);
-
-    void deleteNode(int* id);
+    void refLower(void* ptrId);
+    void refUpper(void* ptrId);
+    void deleteNode(void* ptrId);
 
 };
 

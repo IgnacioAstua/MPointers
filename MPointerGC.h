@@ -6,18 +6,18 @@
 #define MPOINTERGC_H
 #include "LinkedList.h"
 
-
+inline LinkedList lista = LinkedList();
 class MPointerGC {
+
 public:
+    LinkedList list = lista;
     static MPointerGC* getinstance();
-    template <typename T>
-    T* newMPointer (T* ptr);
+    void newptr (void* gc);
+    void refLower (void* ptr);
+    void refUpper (void* ptr);
 private:
-    MPointerGC();
     static MPointerGC* instance;
-    static LinkedList list;
+    MPointerGC();
 };
-
-
 
 #endif //MPOINTERGC_H

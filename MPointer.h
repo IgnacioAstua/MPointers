@@ -4,18 +4,16 @@
 
 #ifndef MPOINTER_H
 #define MPOINTER_H
+#include <iostream>
 
+using namespace std;
 
-template <typename T>
 class MPointer {
 public:
-    T data;
-    T* ptr;
-    void* operator new (size_t size);
-    MPointer() = default;
-
+    void* ptr;
+    MPointer();
+    void *operator new(size_t size);
+    void operator delete(void*);
+    MPointer operator =(const MPointer n);
 };
-
-
-
 #endif //MPOINTER_H
